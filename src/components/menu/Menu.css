@@ -1,0 +1,23 @@
+.app-oficina-theme {
+    background-color: #6aa84f !important;
+}
+
+.text-decoration-none {
+    text-decoration: none;    
+}
+
+.menu-home {
+    color: #FFF;
+}
+
+.menu-home:hover {
+    color: #FFF;
+}
+
+.menu-secondary  {
+    color: #9fff75;
+}
+
+.menu-secondary:hover  {
+    color: #48842e;
+}
