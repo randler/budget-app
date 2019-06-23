@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './pages/App';
+
+import { Provider } from 'react-redux';
+import store from './store';
+
 import Diagnostic from './pages/Diagnostic';
 import NotFound404 from './pages/error/NotFound404';
 import * as serviceWorker from './serviceWorker';
@@ -10,14 +14,16 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { URL_DIAGNOSTIC, URL_HOME } from './utils/variables/variables';
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Switch>
-            <Route path={URL_HOME} exact={true} component={App} />
-            <Route path={URL_DIAGNOSTIC} component={Diagnostic} />
+    <Provider store={store}>
+        <BrowserRouter>
+            <Switch>
+                <Route path={URL_HOME} exact={true} component={App} />
+                <Route path={URL_DIAGNOSTIC} component={Diagnostic} />
 
-            <Route path='*' component={NotFound404} />
-        </Switch>
-    </BrowserRouter>
+                <Route path='*' component={NotFound404} />
+            </Switch>
+        </BrowserRouter>
+    </Provider>
     , document.getElementById('root')
 );
 
