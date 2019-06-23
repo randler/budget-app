@@ -1,8 +1,9 @@
 .chart-desc-seller {
-    font-size: 25px;
+    font-size: 18px;
     font-style: bold;
 
     margin: 0 auto;
+    margin-top: -30px;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -19,9 +20,8 @@
     -ms-transform-origin:right, top;
     -webkit-transform: rotate(-90deg);
     -webkit-transform-origin:right, top;
-    font-size: 25px;
+    font-size: 18px;
     position: absolute;
     top: 30%;
-    left: -50px;
-    
+    left: -5px;
 }
