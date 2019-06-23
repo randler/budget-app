@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import Chart from "react-apexcharts";
-
+import './Chart.css';
 import axios from 'axios';
 
 
@@ -14,29 +14,35 @@ function ChartCanvas() {
     const options = {
         chart: {
           id: "basic-bar"
-        },
+		},
+		defaultLocale: 'pt',
         xaxis: {
           categories: getCategories(budgets)
         }
       };
       const series = [
         {
-          name: "series-1",
+          name: "Valor",
           data: getSeries(budgets)
         }
 	  ]
+
+	  function sortBudgetByValue(budgets) {
+		return budgets.sort((a, b) => a.value.replace('R$ ', '').replace(',', '.') - b.value.replace('R$ ', '').replace(',', '.'));
+	  }
 	  
 	  function getCategories(budgets) {
 		  //let names = ['Total'];
 		  let names = [];
-		  budgets.map(budget => names.push(budget.seller));
+		  console.log(sortBudgetByValue(budgets));
+		  sortBudgetByValue(budgets).map(budget => names.push(budget.seller));
 		  return names;
 	  }
 
 	  function getSeries(budgets) {
 		  //let total = 0;
 		  let valores = [];
-		  budgets.map(budget => {
+		  sortBudgetByValue(budgets).map(budget => {
 			  let valor = parseFloat(budget.value.replace('R$ ', '').replace(',', '.'));
 			  valores.push(valor);
 			  // total += valor;
@@ -61,14 +67,15 @@ function ChartCanvas() {
 	}, []);
 
     return (
-        <div>
+        <div className="m-5">
+			<div className="chart-money">Valor R$</div>
             <Chart
               options={options}
               series={series}
               type="bar"
-              width="500"
+              width="100%"
             />
-            
+			<div className="chart-desc-seller"> Vendedor</div>
         </div>
     )
 }

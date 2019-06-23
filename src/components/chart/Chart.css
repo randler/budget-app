@@ -1,0 +1,27 @@
+.chart-desc-seller {
+    font-size: 25px;
+    font-style: bold;
+
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+
+}
+
+.chart-money {
+    transform: rotate(-90deg);
+    transform-origin: right, top;
+    -ms-transform: rotate(-90deg);
+    -ms-transform-origin:right, top;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin:right, top;
+    font-size: 25px;
+    position: absolute;
+    top: 30%;
+    left: -50px;
+    
+}
