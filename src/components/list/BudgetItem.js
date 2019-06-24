@@ -1,10 +1,10 @@
 import React from 'react'
 import { ListGroup } from 'react-bootstrap';
 
-function BudgetItem({budget}) {
+function BudgetItem({budget, renderModal}) {
     return (
         <ListGroup>
-            <ListGroup.Item action href={`#${budget.id}`}>
+            <ListGroup.Item action onClick={() => renderModal(budget)} href={`#${budget.id}`}>
                 {budget.seller}
             </ListGroup.Item>
         </ListGroup>

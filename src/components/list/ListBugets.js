@@ -1,4 +1,4 @@
-import React, { useEffect }  from 'react'
+import React, { useEffect, useState }  from 'react'
 import { Tab, Row, Col } from 'react-bootstrap';
 
 import axios from 'axios';
@@ -7,9 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import BudgetItem from './BudgetItem';
 import BudgetBody from './BudgetBody';
+import BudgetModal from './BudgetModal';
 
 function ListBugets() {
 
+    const [modal, setModal] = useState(false);
+    const [dataModal, setDataModal] = useState({});
     const budgets = useSelector(state => state.data);
     const dispatch = useDispatch();
 
@@ -25,23 +28,27 @@ function ListBugets() {
         });
       }
       fetchData();
-    }, []);
+	}, []);
+	
+	function renderModal(budget) {
+		setDataModal(budget);
+		setModal(true);
+	}
+
     return (
         <div className="m-3" >
             <Tab.Container  id="list-group-tabs-example">
                 <Row>
-                    <Col xs={3}>
+                    <Col sm={3}>
                         {budgets.map(budget =>  (
-                        <BudgetItem key={budget} budget={budget} />
+                        	<BudgetItem key={budget} renderModal={budgetItem => renderModal(budgetItem)} budget={budget} />
                         )
                     )}
                     </Col>
-                    <Col xs={9}>
-                        {budgets.map(budget =>  (
-                            <BudgetBody key={budget} budget={budget} />
-                            )
-                        )}
-                    </Col>
+					<BudgetModal 
+						budget={dataModal}
+						show={modal}
+						handleClose={() => setModal(false)} />
                 </Row>
             </Tab.Container>
         </div>
