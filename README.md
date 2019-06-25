@@ -3,7 +3,7 @@
 ## Sumário
 
 * [Sobre](#sobre)
-* [Rodar o projeto](#rodar-projeto)
+* [Rodar o projeto](#rodar-o-projeto)
   * [Iniciar a aplicação](#iniciar-a-aplicação)
 * [Pacotes instalados](#pacotes-instalados)
   * [React Router Dom](#react-router-dom)
@@ -13,7 +13,6 @@
   * [Redux](#redux)
   * [React-Redux](#react-redux)
   * [Redux DevTools](#redux-devtools)
-  * [Redux Thunk](#redux-thunk)]
 
 # Sobre
 
